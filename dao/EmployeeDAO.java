@@ -58,7 +58,7 @@ public class EmployeeDAO {
             ps.setDate(6,Date.valueOf(e.getJoinDate()));
             ps.setInt(7,e.getId());
             int rows=ps.executeUpdate();
-            if (rows > 0) {
+            if (rows>0) {
                 System.out.println("Employee updated successfully!");
             } 
             else {
@@ -73,10 +73,10 @@ public class EmployeeDAO {
     public void DeleteEmployee(int delId,Connection con){
         String sql="DELETE FROM EMPLOYEES WHERE ID=?";
         try{
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps=con.prepareStatement(sql);
                 ps.setInt(1, delId);
             int rows=ps.executeUpdate();
-                if (rows > 0) {
+                if (rows>0) {
                 System.out.println("Employee deleted successfully!");
             } 
             else{
