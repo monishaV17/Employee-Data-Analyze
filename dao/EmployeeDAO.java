@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Employee;
 public class EmployeeDAO {
-    private static final int Id = 0;
+    private static final int Id=0;
     public void addEmployees(Employee e,Connection con){
         String sql="INSERT INTO Employees(Id,Name,Age,Department,Designation,Salary,Join_Date) VALUES(?,?,?,?,?,?,?)";
     try{
@@ -80,7 +80,7 @@ public class EmployeeDAO {
                 System.out.println("Employee deleted successfully!");
             } 
             else{
-                    System.out.println("No employee found with ID: " + delId);
+                    System.out.println("No employee found with ID: " +delId);
             }
         } 
         catch (SQLException ex) {
