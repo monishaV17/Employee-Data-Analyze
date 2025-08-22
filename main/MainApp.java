@@ -9,8 +9,8 @@ public class MainApp {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         EmployeeDAO dao=new EmployeeDAO();
-        try (Connection con=DBConnection.gConnection()){
-            if (con==null){
+        try(Connection con=DBConnection.gConnection()){
+            if(con==null){
                 System.out.println("Database connection failed!");
                 return;
             }
@@ -46,12 +46,12 @@ public class MainApp {
                         sc.nextLine();
                         System.out.print("Enter Join Date (YYYY-MM-DD): ");
                         String joinDate=sc.nextLine();
-                        model.Employee emp=new model.Employee(id, name, age, dept, desig, salary, joinDate);
+                        model.Employee emp=new model.Employee(id,name,age,dept,desig,salary,joinDate);
                         dao.addEmployees(emp,con);
                         System.out.println("Employee added!");
                         break;
                     case 2:                                                                 //View Employees
-                        java.util.List<model.Employee> employees = dao.viewEmployees(con);
+                        java.util.List<model.Employee> employees=dao.viewEmployees(con);
                         System.out.println("\n--- Employee List ---");
                         for (model.Employee employee:employees) {
                             System.out.println("ID: " + employee.getId() + ", Name: " + employee.getName() + ", Age: " + employee.getAge() + ", Dept: " + employee.getDepartment() + ", Designation: " + employee.getDesignation() + ", Salary: " + employee.getSalary() + ", Join Date: " + employee.getJoinDate());
@@ -62,7 +62,7 @@ public class MainApp {
                         break;
                     case 3:                                                              // Update specific field for an employee
                         System.out.print("Enter ID of employee to update: ");
-                        int upId = sc.nextInt();
+                        int upId=sc.nextInt();
                         sc.nextLine();
                         System.out.println("Which field do you want to update?");
                         System.out.println("1. Name");
@@ -72,68 +72,68 @@ public class MainApp {
                         System.out.println("5. Salary");
                         System.out.println("6. Join Date");
                         System.out.print("Enter choice: ");
-                        int fieldChoice = sc.nextInt();
+                        int fieldChoice=sc.nextInt();
                         sc.nextLine();                                                              
-                        java.util.List<model.Employee> allEmployees = dao.viewEmployees(con);      // Fetch existing employee details
-                        model.Employee found = null;
-                        for (model.Employee employee : allEmployees) {
-                            if (employee.getId() == upId) {
-                                found = employee;
+                        java.util.List<model.Employee>allEmployees=dao.viewEmployees(con);      // Fetch existing employee details
+                        model.Employee found=null;
+                        for (model.Employee employee:allEmployees) {
+                            if (employee.getId()==upId) {
+                                found=employee;
                                 break;
                             }
                         }
-                        if (found == null) {
+                        if (found==null) {
                             System.out.println("No employee found with ID: " + upId);
                             break;
                         }
-                        String newName = found.getName();
-                        int newAge = found.getAge();
-                        String newDept = found.getDepartment();
-                        String newDesig = found.getDesignation();
-                        double newSalary = found.getSalary();
-                        String newJoinDate = found.getJoinDate();
+                        String newName=found.getName();
+                        int newAge=found.getAge();
+                        String newDept=found.getDepartment();
+                        String newDesig=found.getDesignation();
+                        double newSalary=found.getSalary();
+                        String newJoinDate=found.getJoinDate();
                         switch(fieldChoice) {
                             case 1:
                                 System.out.print("Enter new Name: ");
-                                newName = sc.nextLine();
+                                newName=sc.nextLine();
                                 break;
                             case 2:
                                 System.out.print("Enter new Age: ");
-                                newAge = sc.nextInt();
+                                newAge=sc.nextInt();
                                 sc.nextLine();
                                 break;
                             case 3:
                                 System.out.print("Enter new Department: ");
-                                newDept = sc.nextLine();
+                                newDept=sc.nextLine();
                                 break;
                             case 4:
                                 System.out.print("Enter new Designation: ");
-                                newDesig = sc.nextLine();
+                                newDesig=sc.nextLine();
                                 break;
                             case 5:
                                 System.out.print("Enter new Salary: ");
-                                newSalary = sc.nextDouble();
+                                newSalary=sc.nextDouble();
                                 sc.nextLine();
-                                if (newSalary <= 0) {
+                                if (newSalary<=0) {
                                     System.out.println("Salary must be greater than 0.");
                                     break;
                                 }
                                 break;
                             case 6:
                                 System.out.print("Enter new Join Date (YYYY-MM-DD): ");
-                                newJoinDate = sc.nextLine();
+                                newJoinDate=sc.nextLine();
                                 break;
                             default:
                                 System.out.println("Invalid field choice!");
                                 break;
                         }
-                        model.Employee upEmp = new model.Employee(upId, newName, newAge, newDept, newDesig, newSalary, newJoinDate);
-                        dao.updateEmployee(upEmp, con);
+                        model.Employee upEmp=new model.Employee(upId,newName,newAge,newDept,newDesig,newSalary,newJoinDate);
+                        dao.updateEmployee(upEmp,con);
                         break;
                     case 4:                                                        //Delete Employee
                         System.out.print("Enter ID of employee to delete: ");
                         int delId=sc.nextInt();
-                        dao.DeleteEmployee(delId, con);
+                        dao.DeleteEmployee(delId,con);
                         System.out.println("Employee deleted!");
                         break;
                     case 5:
