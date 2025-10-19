@@ -1,17 +1,17 @@
-## Employee Data Management System
+## 🏢Employee Data Management System
 
 A Java console-based application to manage employee records with features to **add, view, update, and delete** employee details.  
 Data is stored and retrieved from a **MySQL database** using **JDBC**.
 
 
-## Features
+## ✨Features
 - Add new employee records  
 - View all employee records  
 - Update existing employee details  
 - Delete employee records  
 
 
-## Data Fields
+## 🗂️Data Fields
 Each employee record contains the following details:
 - **ID** (Unique Identifier)  
 - **Name**  
@@ -21,7 +21,7 @@ Each employee record contains the following details:
 - **Salary**  
 - **Join Date**  
 
-## Project Structure
+## 📂Project Structure
 DB/DBConnection.java
 
 dao/EmployeeDAO.java
@@ -35,13 +35,13 @@ model/Employee.java
 README/README.md
 
 
-## Technologies Used
+## 💻Technologies Used
 - **Java (Core Java)**  
 - **JDBC (Java Database Connectivity)**  
 - **MySQL**  
 
 
-## How to Run
+## 🚀 How to Run
 1. Clone or download the project  
 2. Set up a MySQL database and create a table with the fields mentioned above  
 3. Update the database connection details (URL, username, password) in the Java code  
