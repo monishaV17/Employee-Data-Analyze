@@ -23,10 +23,15 @@ Each employee record contains the following details:
 
 ## Project Structure
 DB/DBConnection.java
+
 dao/EmployeeDAO.java
+
 lib/mysql-connector-j-9.3.0.jar
+
 main/MainApp.java
+
 model/Employee.java
+
 README/README.md
 
 
