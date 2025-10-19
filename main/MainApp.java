@@ -6,7 +6,7 @@ import model.Employee;
 import DB.DBConnection;
 
 public class MainApp {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         EmployeeDAO dao=new EmployeeDAO();
         try(Connection con=DBConnection.gConnection()){
@@ -53,10 +53,10 @@ public class MainApp {
                     case 2:                                                                 //View Employees
                         java.util.List<model.Employee> employees=dao.viewEmployees(con);
                         System.out.println("\n--- Employee List ---");
-                        for (model.Employee employee:employees) {
+                        for(model.Employee employee:employees) {
                             System.out.println("ID: " + employee.getId() + ", Name: " + employee.getName() + ", Age: " + employee.getAge() + ", Dept: " + employee.getDepartment() + ", Designation: " + employee.getDesignation() + ", Salary: " + employee.getSalary() + ", Join Date: " + employee.getJoinDate());
                         }
-                        if (employees.isEmpty()) {
+                        if(employees.isEmpty()){
                             System.out.println("No employees found.");
                         }
                         break;
@@ -76,13 +76,13 @@ public class MainApp {
                         sc.nextLine();                                                              
                         java.util.List<model.Employee>allEmployees=dao.viewEmployees(con);      // Fetch existing employee details
                         model.Employee found=null;
-                        for (model.Employee employee:allEmployees) {
-                            if (employee.getId()==upId) {
+                        for(model.Employee employee:allEmployees){
+                            if(employee.getId()==upId){
                                 found=employee;
                                 break;
                             }
                         }
-                        if (found==null) {
+                        if(found==null){
                             System.out.println("No employee found with ID: " + upId);
                             break;
                         }
@@ -92,7 +92,7 @@ public class MainApp {
                         String newDesig=found.getDesignation();
                         double newSalary=found.getSalary();
                         String newJoinDate=found.getJoinDate();
-                        switch(fieldChoice) {
+                        switch(fieldChoice){
                             case 1:
                                 System.out.print("Enter new Name: ");
                                 newName=sc.nextLine();
@@ -143,7 +143,7 @@ public class MainApp {
                         System.out.println("Invalid choice! Try again.");
                 }
             }
-        } catch(Exception e) {
+        } catch(Exception e){
             e.printStackTrace();
         }
         sc.close();
