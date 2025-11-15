@@ -98,20 +98,20 @@ public class MainApp {
                                 newName=sc.nextLine();
                                 break;
                             case 2:
-                                System.out.print("Enter new Age: ");
+                                System.out.print("Enter New Age: ");
                                 newAge=sc.nextInt();
                                 sc.nextLine();
                                 break;
                             case 3:
-                                System.out.print("Enter new Department: ");
+                                System.out.print("Enter New Department: ");
                                 newDept=sc.nextLine();
                                 break;
                             case 4:
-                                System.out.print("Enter new Designation: ");
+                                System.out.print("Enter New Designation: ");
                                 newDesig=sc.nextLine();
                                 break;
                             case 5:
-                                System.out.print("Enter new Salary: ");
+                                System.out.print("Enter New Salary: ");
                                 newSalary=sc.nextDouble();
                                 sc.nextLine();
                                 if (newSalary<=0) {
